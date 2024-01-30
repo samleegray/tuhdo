@@ -30,7 +30,7 @@ struct NoteList: View {
         NavigationSplitView {
             // List of all items
             List {
-                ForEach(previewItems ?? items) { item in
+                ForEach(items) { item in
                     NavigationLink {
                         NoteDetails(item: item)
                     } label: {
@@ -71,7 +71,7 @@ struct NoteList: View {
     private func addItem() {
         withAnimation {
             // Create & insert new item.
-            let newItem = Item(timestamp: Date(), text: newItemText)
+            let newItem = Item(createdDate: Date(), text: newItemText)
             modelContext.insert(newItem)
             // Reset.
             reset()
@@ -96,8 +96,8 @@ struct NoteList: View {
 
 struct NoteList_Previews: PreviewProvider {
     static let items = [
-        Item(timestamp: Date.distantPast, text: "An old todo.", title: "Old Title Todo"),
-        Item(timestamp: Date.distantFuture, text: "A note from the future!", title: "Future Note")
+        Item(createdDate: Date.distantPast, text: "An old todo.", title: "Old Title Todo"),
+        Item(createdDate: Date.distantFuture, text: "A note from the future!", title: "Future Note")
     ]
     
     static var previews: NoteList = {

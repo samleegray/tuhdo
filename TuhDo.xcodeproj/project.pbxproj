@@ -17,6 +17,7 @@
 		7490B9352B68EC220077652B /* TuhDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9342B68EC220077652B /* TuhDoUITestsLaunchTests.swift */; };
 		7490B9422B68F9B10077652B /* NoteDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9412B68F9B10077652B /* NoteDetails.swift */; };
 		7490B9442B6915960077652B /* QuickEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9432B6915960077652B /* QuickEntry.swift */; };
+		7490B9462B6922D00077652B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9452B6922D00077652B /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		7490B9342B68EC220077652B /* TuhDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuhDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7490B9412B68F9B10077652B /* NoteDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetails.swift; sourceTree = "<group>"; };
 		7490B9432B6915960077652B /* QuickEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickEntry.swift; sourceTree = "<group>"; };
+		7490B9452B6922D00077652B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,15 +104,16 @@
 		7490B9122B68EC200077652B /* TuhDo */ = {
 			isa = PBXGroup;
 			children = (
+				7490B9452B6922D00077652B /* LocationManager.swift */,
 				7490B9132B68EC200077652B /* TuhDoApp.swift */,
 				7490B9152B68EC200077652B /* NoteList.swift */,
 				7490B9412B68F9B10077652B /* NoteDetails.swift */,
+				7490B9432B6915960077652B /* QuickEntry.swift */,
 				7490B9172B68EC200077652B /* Item.swift */,
 				7490B9192B68EC210077652B /* Assets.xcassets */,
 				7490B91E2B68EC210077652B /* TuhDo.entitlements */,
 				7490B91F2B68EC210077652B /* Info.plist */,
 				7490B91B2B68EC210077652B /* Preview Content */,
-				7490B9432B6915960077652B /* QuickEntry.swift */,
 			);
 			path = TuhDo;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				7490B9442B6915960077652B /* QuickEntry.swift in Sources */,
 				7490B9422B68F9B10077652B /* NoteDetails.swift in Sources */,
+				7490B9462B6922D00077652B /* LocationManager.swift in Sources */,
 				7490B9162B68EC200077652B /* NoteList.swift in Sources */,
 				7490B9182B68EC200077652B /* Item.swift in Sources */,
 				7490B9142B68EC200077652B /* TuhDoApp.swift in Sources */,
@@ -443,6 +447,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TuhDo/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "So we can add location to your todos, and alert you when it makes sense. No location information is shared off the device.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -474,6 +479,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TuhDo/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "So we can add location to your todos, and alert you when it makes sense. No location information is shared off the device.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

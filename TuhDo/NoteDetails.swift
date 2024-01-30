@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct NoteDetails: View {
     /// Not 100% sure, need to check this out. -Sam
@@ -29,7 +30,7 @@ struct NoteDetails: View {
         }.padding()
         Spacer()
         HStack {
-            Text("Created on \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+            Text("Created on \(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))")
                 .font(.footnote)
         }.padding()
             .onDisappear(perform: {
@@ -53,6 +54,6 @@ struct NoteDetails: View {
 }
 
 #Preview {
-    NoteDetails(item: Item(timestamp: Date(), text: "I'm some text!", title: "I'm a title"))
+    NoteDetails(item: Item(createdDate: Date(), text: "I'm some text!", title: "I'm a title"))
 }
 
