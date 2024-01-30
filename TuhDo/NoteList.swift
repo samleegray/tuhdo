@@ -59,13 +59,12 @@ struct NoteList: View {
             }.navigationBarTitleDisplayMode(.large)
                 .navigationTitle(LocalizedStrings.title)
             
+            // Bottom entry section.
+            QuickEntry(newItemText: $newItemText)
         } detail: {
             // The default detail page when we have nothing to display.
             Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
         }
-        
-        // Bottom entry section.
-        QuickEntry(newItemText: $newItemText)
     }
 
     /// Add an item to our storage.
