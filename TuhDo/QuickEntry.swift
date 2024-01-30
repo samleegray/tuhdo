@@ -19,11 +19,13 @@ struct QuickEntry: View {
     }
     
     func getTextView() -> some View {
-        VStack(alignment: .leading) {
-            TextField("Placeholder", text: $newItemText, axis: .vertical)
-                .cornerRadius(newItemTextCornerRadius)
-                .frame(minHeight: newItemTextMinHeight)
-                .padding()
+        HStack {
+            VStack(alignment: .leading) {
+                TextField("Placeholder", text: $newItemText, axis: .vertical)
+                    .cornerRadius(newItemTextCornerRadius)
+                    .frame(minHeight: newItemTextMinHeight)
+                    .padding()
+            }
         }
     }
     

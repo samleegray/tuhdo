@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 import CoreLocation
 
-typealias Item = ItemSchemaV5.Item
+typealias Item = ItemSchemaV6.Item
 
 enum ItemSchemaV1: VersionedSchema {
     static var versionIdentifier: Schema.Version = Schema.Version(1, 0, 0)
@@ -144,18 +144,49 @@ enum ItemSchemaV5: VersionedSchema {
     }
 }
 
+enum ItemSchemaV6: VersionedSchema {
+    static var versionIdentifier: Schema.Version = Schema.Version(6, 0, 0)
+    static var models: [any PersistentModel.Type] {
+        [Item.self]
+    }
+    
+    @Model
+    final class Item {
+        @Attribute(.unique) let id: UUID
+        var createdDate: Date
+        var lastUpdatedDate: Date
+        var lastActionTakenDate: Date
+        var notes: String
+        var title: String?
+        var latitude: CLLocationDegrees?
+        var longitude: CLLocationDegrees?
+        
+        init(id: UUID = UUID(), createdDate: Date = Date.now, lastUpdatedDate: Date = Date.now, lastActionTakenDate: Date = Date.now, notes: String = "", title: String? = nil, location: CLLocation? = nil) {
+            self.id = id
+            self.createdDate = createdDate
+            self.lastUpdatedDate = lastUpdatedDate
+            self.lastActionTakenDate = lastActionTakenDate
+            self.notes = notes
+            self.title = title
+            self.latitude = location?.coordinate.latitude
+            self.longitude = location?.coordinate.longitude
+        }
+    }
+}
+
 enum ItemMigrationPlan: SchemaMigrationPlan {
     static var schemas: [any VersionedSchema.Type] {
         [ItemSchemaV1.self, ItemSchemaV2.self, 
          ItemSchemaV3.self, ItemSchemaV4.self,
-         ItemSchemaV5.self]
+         ItemSchemaV5.self, ItemSchemaV6.self]
     }
     
     static var stages: [MigrationStage] {
         [migrateV1toV2,
         migrateV2toV3,
         migrateV3toV4,
-        migrateV4toV5]
+        migrateV4toV5,
+        migrateV5toV6]
     }
     
     static let migrateV1toV2 = MigrationStage.lightweight(
@@ -166,6 +197,24 @@ enum ItemMigrationPlan: SchemaMigrationPlan {
         fromVersion: ItemSchemaV3.self, toVersion: ItemSchemaV4.self)
     static let migrateV4toV5 = MigrationStage.lightweight(
         fromVersion: ItemSchemaV4.self, toVersion: ItemSchemaV5.self)
+    static let migrateV5toV6 = MigrationStage.custom(
+        fromVersion: ItemSchemaV5.self, toVersion: ItemSchemaV6.self, willMigrate: { context in
+            let items = try context.fetch(FetchDescriptor<ItemSchemaV5.Item>())
+            
+            for item in items {
+                let newItem = ItemSchemaV6.Item(createdDate: item.createdDate,
+                                                lastUpdatedDate: item.createdDate,
+                                                lastActionTakenDate: item.createdDate,
+                                                notes: item.notes,
+                                                title: item.title,
+                                                location: CLLocation(latitude: 0, longitude: 0))
+                
+                context.delete(item)
+                context.insert(newItem)
+            }
+            
+            try context.save()
+        }, didMigrate: nil)
     
 //    static let migrateV1toV2 = MigrationStage.custom(fromVersion: ItemSchemaV1.self,
 //                                                     toVersion: ItemSchemaV2.self,

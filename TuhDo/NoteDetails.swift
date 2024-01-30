@@ -24,11 +24,15 @@ struct NoteDetails: View {
     }
     
     var body: some View {
-        VStack {
-            TextField("Title", text: $title).font(.title)
-            TextField("Placeholder", text: $notes)
-        }.padding()
+        ScrollView {
+            VStack {
+                TextField("Title", text: $title).font(.title)
+                TextField("Placeholder", text: $notes, axis: .vertical)
+            }.padding()
+        }.scrollDismissesKeyboard(.interactively)
+        
         Spacer()
+        
         HStack {
             Text("Created on \(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))")
                 .font(.footnote)
@@ -36,6 +40,13 @@ struct NoteDetails: View {
             .onDisappear(perform: {
                 saveItem()
             })
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: saveItem) {
+                        Text("Save")
+                    }
+                }
+            }.navigationBarTitleDisplayMode(.inline)
     }
     
     /// Add an item to our storage.

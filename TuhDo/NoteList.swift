@@ -21,50 +21,71 @@ struct NoteList: View {
         static let title = NSLocalizedString("note_list_view_title", value: "TuhDo List", comment: "TuhDo List, a take on Todo List")
         static let defaultDetailPageViewText = NSLocalizedString("default_detail_page_view_text", value: "Select an item.", comment: "Displays when nothing is selected in the details view.")
         static let addItemLabel = NSLocalizedString("add_item_label", value: "Add Item", comment: "Add Item.")
+        static let filterItemLabel = NSLocalizedString("filter_item_label", value: "Filter", comment: "Filter")
+        static let detailsTitle = NSLocalizedString("details_view_title", value: "Details", comment: "Details view title.")
     }
     
     /// New item text.
     @State var newItemText: String = ""
+    @State private var selectedItem: Item?
 
     var body: some View {
         NavigationSplitView {
             // List of all items
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        NoteDetails(item: item)
-                    } label: {
-                        VStack(alignment: .leading) {
-                            if let title = item.title {
-                                Text(title).font(.headline)
-                            }
-                            Text(item.notes)
-                            Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
-                                .font(.footnote).foregroundStyle(.secondary)
-                            
+            List(items, selection: $selectedItem) {
+                let item = $0
+                NavigationLink(value: item) {
+                    VStack(alignment: .leading) {
+                        if let title = item.title {
+                            Text(title).font(.headline)
+                        }
+                        Text(item.notes)
+                        Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
+                            .font(.footnote).foregroundStyle(.secondary)
+                        
+                    }
+//                        NoteDetails(item: item)
+                }
+            // Toolbar for navigation items
+            }.toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    HStack {
+                        Button(action: addItem) {
+                            Label(LocalizedStrings.addItemLabel, systemImage: "plus")
                         }
                     }
                 }
-                .onDelete(perform: deleteItems)
-            // Toolbar for navigation items
-            }.toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label(LocalizedStrings.addItemLabel, systemImage: "plus")
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: filter) {
+                        Label(LocalizedStrings.filterItemLabel, systemImage: "line.3.horizontal.decrease.circle")
                     }
                 }
-            }.navigationBarTitleDisplayMode(.large)
-                .navigationTitle(LocalizedStrings.title)
+                ToolbarItem(placement: .topBarTrailing) {
+                    EditButton()
+                }
+            }
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle(LocalizedStrings.title)
+            .scrollDismissesKeyboard(.immediately)
             
             // Bottom entry section.
-            QuickEntry(newItemText: $newItemText)
+//            QuickEntry(newItemText: $newItemText)
         } detail: {
+            if let selectedItem {
+                NoteDetails(item: selectedItem)
+                    .navigationTitle(LocalizedStrings.detailsTitle)
+                    .id(selectedItem.id)
+            } else {
+                Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
+            }
             // The default detail page when we have nothing to display.
-            Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
+//            Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
         }
+    }
+    
+    /// Filter operations will go here.
+    private func filter() {
+        // Placeholder for Filter operations
     }
 
     /// Add an item to our storage.
