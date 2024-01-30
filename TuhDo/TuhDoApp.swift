@@ -25,7 +25,7 @@ struct TuhDoApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NoteList()
         }
         .modelContainer(sharedModelContainer)
     }

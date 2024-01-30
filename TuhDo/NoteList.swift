@@ -8,23 +8,35 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct NoteList: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    
+    private struct LocalizedStrings {
+        static let title = "TuhDo List"
+    }
+    
+    @State var newItemText: String = ""
 
     var body: some View {
+        
         NavigationSplitView {
+            // List of all items
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        NoteDetails(item: item)
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        VStack(alignment: .leading) {
+                            Text(item.text)
+                            Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                                .font(.footnote).foregroundStyle(.secondary)
+                            
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
-            }
-            .toolbar {
+            }.toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
@@ -33,15 +45,21 @@ struct ContentView: View {
                         Label("Add Item", systemImage: "plus")
                     }
                 }
-            }
+            }.navigationBarTitleDisplayMode(.large)
+                .navigationTitle(LocalizedStrings.title)
+            
         } detail: {
-            Text("Select an item")
+            Text("Select an item").font(.subheadline)
         }
+        
+        // Bottom entry section.
+        QuickEntry(newItemText: $newItemText)
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            print("newItemText: \(newItemText)")
+            let newItem = Item(timestamp: Date(), text: newItemText)
             modelContext.insert(newItem)
         }
     }
@@ -56,6 +74,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    NoteList()
         .modelContainer(for: Item.self, inMemory: true)
 }
