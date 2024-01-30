@@ -26,16 +26,16 @@ struct NoteDetails: View {
     var body: some View {
         VStack {
             TextField("Title", text: $title, axis: .vertical).font(.title)
-            TextEditor(text: $notes)
-                .font(.callout)
+            CustomTextEditor(text: $notes)
+                .scrollDismissesKeyboard(.interactively)
         }.padding()
-//            .toolbar {
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    Button(action: saveItem) {
-//                        Text("Save")
-//                    }
-//                }
-//            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: saveItem) {
+                        Text("Save")
+                    }
+                }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .onDisappear(perform: {
                 saveItem()
