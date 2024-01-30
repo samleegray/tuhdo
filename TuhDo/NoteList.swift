@@ -61,6 +61,7 @@ struct NoteList: View {
             print("newItemText: \(newItemText)")
             let newItem = Item(timestamp: Date(), text: newItemText)
             modelContext.insert(newItem)
+            newItemText = ""
         }
     }
 
