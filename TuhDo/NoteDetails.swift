@@ -29,23 +29,27 @@ struct NoteDetails: View {
             TextEditor(text: $notes)
                 .font(.callout)
         }.padding()
-        
-        Spacer()
-        
-        HStack {
-            Text("Created on \(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                .font(.footnote)
-        }.padding()
+//            .toolbar {
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    Button(action: saveItem) {
+//                        Text("Save")
+//                    }
+//                }
+//            }
+            .navigationBarTitleDisplayMode(.inline)
             .onDisappear(perform: {
                 saveItem()
             })
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: saveItem) {
-                        Text("Save")
-                    }
-                }
-            }.navigationBarTitleDisplayMode(.inline)
+        
+        Spacer()
+        
+//        LazyHStack {
+            Text("Created on \(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                .font(.footnote)
+                .ignoresSafeArea(.keyboard)
+//        }.padding()
+            
+            
     }
     
     /// Add an item to our storage.

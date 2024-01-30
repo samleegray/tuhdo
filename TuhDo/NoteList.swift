@@ -49,11 +49,7 @@ struct NoteList: View {
                             }
                         }
                     }.onDelete(perform: deleteItems)
-                } header: {
-                    Text(LocalizedStrings.defaultSectionTitle)
-                        .font(.subheadline)
-                        .multilineTextAlignment(.leading)
-                }.listStyle(.insetGrouped)
+                }.listStyle(.automatic)
             // Toolbar for navigation items
             }.toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -65,7 +61,7 @@ struct NoteList: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
                         Button(action: addItem) {
-                            Label(LocalizedStrings.addItemLabel, systemImage: "plus")
+                            Label(LocalizedStrings.addItemLabel, systemImage: "plus.circle.fill")
                         }
                     }
                 }
@@ -77,59 +73,13 @@ struct NoteList: View {
             .navigationBarTitleDisplayMode(.large)
             .navigationTitle(LocalizedStrings.title)
             .scrollDismissesKeyboard(.immediately)
-
-//            Section(LocalizedStrings.defaultSectionTitle) {
-//                List(selection: $selectedItem) {
-//                    ForEach(previewItems ?? items) { item in
-//                        NavigationLink(value: item) {
-//                            VStack(alignment: .leading) {
-//                                if let title = item.title {
-//                                    Text(title).font(.headline)
-//                                }
-//                                Text(item.notes)
-//                                Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
-//                                    .font(.footnote).foregroundStyle(.secondary)
-//                                
-//                            }
-//                        }
-//                    }.onDelete(perform: deleteItems)
-//                }.listStyle(.insetGrouped)
-//            // Toolbar for navigation items
-//            }.toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button(action: filter) {
-//                        Label(LocalizedStrings.filterItemLabel, systemImage: "line.3.horizontal.decrease.circle")
-//                    }
-//                }
-//                
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    HStack {
-//                        Button(action: addItem) {
-//                            Label(LocalizedStrings.addItemLabel, systemImage: "plus")
-//                        }
-//                    }
-//                }
-//                
-//                ToolbarItem(placement: .topBarTrailing) {
-//                    EditButton()
-//                }
-//            }
-//            .navigationBarTitleDisplayMode(.large)
-//            .navigationTitle(LocalizedStrings.title)
-//            .scrollDismissesKeyboard(.immediately)
-            
-            // Bottom entry section.
-//            QuickEntry(newItemText: $newItemText)
         } detail: {
             if let selectedItem {
                 NoteDetails(item: selectedItem)
-                    .navigationTitle(LocalizedStrings.detailsTitle)
                     .id(selectedItem.id)
             } else {
                 Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
             }
-            // The default detail page when we have nothing to display.
-//            Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
         }
     }
     
