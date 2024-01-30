@@ -43,7 +43,11 @@ struct NoteDetails: View {
         withAnimation {
             // Create & insert new item.
             item.notes = notes
-            item.title = title
+            if !title.isEmpty {
+                item.title = title
+            } else {
+                item.title = nil
+            }
             do {
                 try modelContext.save()
             } catch {
