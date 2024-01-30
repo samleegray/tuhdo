@@ -19,7 +19,7 @@ struct NoteDetails: View {
     
     init(item: Item) {
         self.item = item
-        self.notes = item.text
+        self.notes = item.notes
         self.title = item.title ?? ""
     }
     
@@ -42,7 +42,7 @@ struct NoteDetails: View {
     private func saveItem() {
         withAnimation {
             // Create & insert new item.
-            item.text = notes
+            item.notes = notes
             item.title = title
             do {
                 try modelContext.save()
@@ -54,6 +54,6 @@ struct NoteDetails: View {
 }
 
 #Preview {
-    NoteDetails(item: Item(createdDate: Date(), text: "I'm some text!", title: "I'm a title"))
+    NoteDetails(item: Item(createdDate: Date(), notes: "I'm some text!", title: "I'm a title"))
 }
 

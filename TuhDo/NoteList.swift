@@ -38,8 +38,8 @@ struct NoteList: View {
                             if let title = item.title {
                                 Text(title).font(.headline)
                             }
-                            Text(item.text)
-                            Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                            Text(item.notes)
+                            Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
                                 .font(.footnote).foregroundStyle(.secondary)
                             
                         }
@@ -71,7 +71,7 @@ struct NoteList: View {
     private func addItem() {
         withAnimation {
             // Create & insert new item.
-            let newItem = Item(createdDate: Date(), text: newItemText)
+            let newItem = Item(createdDate: Date(), notes: newItemText)
             modelContext.insert(newItem)
             // Reset.
             reset()
@@ -96,8 +96,8 @@ struct NoteList: View {
 
 struct NoteList_Previews: PreviewProvider {
     static let items = [
-        Item(createdDate: Date.distantPast, text: "An old todo.", title: "Old Title Todo"),
-        Item(createdDate: Date.distantFuture, text: "A note from the future!", title: "Future Note")
+        Item(createdDate: Date.distantPast, notes: "An old todo.", title: "Old Title Todo"),
+        Item(createdDate: Date.distantFuture, notes: "A note from the future!", title: "Future Note")
     ]
     
     static var previews: NoteList = {
