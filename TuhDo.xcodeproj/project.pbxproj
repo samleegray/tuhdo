@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7490B9142B68EC200077652B /* TuhDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9132B68EC200077652B /* TuhDoApp.swift */; };
+		7490B9162B68EC200077652B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9152B68EC200077652B /* ContentView.swift */; };
+		7490B9182B68EC200077652B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9172B68EC200077652B /* Item.swift */; };
+		7490B91A2B68EC210077652B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7490B9192B68EC210077652B /* Assets.xcassets */; };
+		7490B91D2B68EC210077652B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7490B91C2B68EC210077652B /* Preview Assets.xcassets */; };
+		7490B9292B68EC220077652B /* TuhDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9282B68EC220077652B /* TuhDoTests.swift */; };
+		7490B9332B68EC220077652B /* TuhDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9322B68EC220077652B /* TuhDoUITests.swift */; };
+		7490B9352B68EC220077652B /* TuhDoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7490B9342B68EC220077652B /* TuhDoUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7490B9252B68EC220077652B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7490B9082B68EC200077652B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7490B90F2B68EC200077652B;
+			remoteInfo = TuhDo;
+		};
+		7490B92F2B68EC220077652B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7490B9082B68EC200077652B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7490B90F2B68EC200077652B;
+			remoteInfo = TuhDo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7490B9102B68EC200077652B /* TuhDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuhDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7490B9132B68EC200077652B /* TuhDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuhDoApp.swift; sourceTree = "<group>"; };
+		7490B9152B68EC200077652B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7490B9172B68EC200077652B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7490B9192B68EC210077652B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7490B91C2B68EC210077652B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7490B91E2B68EC210077652B /* TuhDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TuhDo.entitlements; sourceTree = "<group>"; };
+		7490B91F2B68EC210077652B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7490B9242B68EC220077652B /* TuhDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuhDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7490B9282B68EC220077652B /* TuhDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuhDoTests.swift; sourceTree = "<group>"; };
+		7490B92E2B68EC220077652B /* TuhDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuhDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7490B9322B68EC220077652B /* TuhDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuhDoUITests.swift; sourceTree = "<group>"; };
+		7490B9342B68EC220077652B /* TuhDoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuhDoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7490B90D2B68EC200077652B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7490B9212B68EC220077652B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7490B92B2B68EC220077652B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7490B9072B68EC200077652B = {
+			isa = PBXGroup;
+			children = (
+				7490B9122B68EC200077652B /* TuhDo */,
+				7490B9272B68EC220077652B /* TuhDoTests */,
+				7490B9312B68EC220077652B /* TuhDoUITests */,
+				7490B9112B68EC200077652B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7490B9112B68EC200077652B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7490B9102B68EC200077652B /* TuhDo.app */,
+				7490B9242B68EC220077652B /* TuhDoTests.xctest */,
+				7490B92E2B68EC220077652B /* TuhDoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7490B9122B68EC200077652B /* TuhDo */ = {
+			isa = PBXGroup;
+			children = (
+				7490B9132B68EC200077652B /* TuhDoApp.swift */,
+				7490B9152B68EC200077652B /* ContentView.swift */,
+				7490B9172B68EC200077652B /* Item.swift */,
+				7490B9192B68EC210077652B /* Assets.xcassets */,
+				7490B91E2B68EC210077652B /* TuhDo.entitlements */,
+				7490B91F2B68EC210077652B /* Info.plist */,
+				7490B91B2B68EC210077652B /* Preview Content */,
+			);
+			path = TuhDo;
+			sourceTree = "<group>";
+		};
+		7490B91B2B68EC210077652B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7490B91C2B68EC210077652B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7490B9272B68EC220077652B /* TuhDoTests */ = {
+			isa = PBXGroup;
+			children = (
+				7490B9282B68EC220077652B /* TuhDoTests.swift */,
+			);
+			path = TuhDoTests;
+			sourceTree = "<group>";
+		};
+		7490B9312B68EC220077652B /* TuhDoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7490B9322B68EC220077652B /* TuhDoUITests.swift */,
+				7490B9342B68EC220077652B /* TuhDoUITestsLaunchTests.swift */,
+			);
+			path = TuhDoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7490B90F2B68EC200077652B /* TuhDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7490B9382B68EC220077652B /* Build configuration list for PBXNativeTarget "TuhDo" */;
+			buildPhases = (
+				7490B90C2B68EC200077652B /* Sources */,
+				7490B90D2B68EC200077652B /* Frameworks */,
+				7490B90E2B68EC200077652B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TuhDo;
+			productName = TuhDo;
+			productReference = 7490B9102B68EC200077652B /* TuhDo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7490B9232B68EC220077652B /* TuhDoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7490B93B2B68EC220077652B /* Build configuration list for PBXNativeTarget "TuhDoTests" */;
+			buildPhases = (
+				7490B9202B68EC220077652B /* Sources */,
+				7490B9212B68EC220077652B /* Frameworks */,
+				7490B9222B68EC220077652B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7490B9262B68EC220077652B /* PBXTargetDependency */,
+			);
+			name = TuhDoTests;
+			productName = TuhDoTests;
+			productReference = 7490B9242B68EC220077652B /* TuhDoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7490B92D2B68EC220077652B /* TuhDoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7490B93E2B68EC220077652B /* Build configuration list for PBXNativeTarget "TuhDoUITests" */;
+			buildPhases = (
+				7490B92A2B68EC220077652B /* Sources */,
+				7490B92B2B68EC220077652B /* Frameworks */,
+				7490B92C2B68EC220077652B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7490B9302B68EC220077652B /* PBXTargetDependency */,
+			);
+			name = TuhDoUITests;
+			productName = TuhDoUITests;
+			productReference = 7490B92E2B68EC220077652B /* TuhDoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7490B9082B68EC200077652B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					7490B90F2B68EC200077652B = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					7490B9232B68EC220077652B = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 7490B90F2B68EC200077652B;
+					};
+					7490B92D2B68EC220077652B = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 7490B90F2B68EC200077652B;
+					};
+				};
+			};
+			buildConfigurationList = 7490B90B2B68EC200077652B /* Build configuration list for PBXProject "TuhDo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7490B9072B68EC200077652B;
+			productRefGroup = 7490B9112B68EC200077652B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7490B90F2B68EC200077652B /* TuhDo */,
+				7490B9232B68EC220077652B /* TuhDoTests */,
+				7490B92D2B68EC220077652B /* TuhDoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7490B90E2B68EC200077652B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7490B91D2B68EC210077652B /* Preview Assets.xcassets in Resources */,
+				7490B91A2B68EC210077652B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7490B9222B68EC220077652B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7490B92C2B68EC220077652B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7490B90C2B68EC200077652B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7490B9162B68EC200077652B /* ContentView.swift in Sources */,
+				7490B9182B68EC200077652B /* Item.swift in Sources */,
+				7490B9142B68EC200077652B /* TuhDoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7490B9202B68EC220077652B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7490B9292B68EC220077652B /* TuhDoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7490B92A2B68EC220077652B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7490B9332B68EC220077652B /* TuhDoUITests.swift in Sources */,
+				7490B9352B68EC220077652B /* TuhDoUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7490B9262B68EC220077652B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7490B90F2B68EC200077652B /* TuhDo */;
+			targetProxy = 7490B9252B68EC220077652B /* PBXContainerItemProxy */;
+		};
+		7490B9302B68EC220077652B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7490B90F2B68EC200077652B /* TuhDo */;
+			targetProxy = 7490B92F2B68EC220077652B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7490B9362B68EC220077652B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7490B9372B68EC220077652B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7490B9392B68EC220077652B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TuhDo/TuhDo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TuhDo/Preview Content\"";
+				DEVELOPMENT_TEAM = C58A2E944A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TuhDo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgrayapps.TuhDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7490B93A2B68EC220077652B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TuhDo/TuhDo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TuhDo/Preview Content\"";
+				DEVELOPMENT_TEAM = C58A2E944A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TuhDo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgrayapps.TuhDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7490B93C2B68EC220077652B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C58A2E944A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgrayapps.TuhDoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuhDo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuhDo";
+			};
+			name = Debug;
+		};
+		7490B93D2B68EC220077652B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C58A2E944A;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgrayapps.TuhDoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TuhDo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TuhDo";
+			};
+			name = Release;
+		};
+		7490B93F2B68EC220077652B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C58A2E944A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgrayapps.TuhDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TuhDo;
+			};
+			name = Debug;
+		};
+		7490B9402B68EC220077652B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C58A2E944A;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.samgrayapps.TuhDoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TuhDo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7490B90B2B68EC200077652B /* Build configuration list for PBXProject "TuhDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7490B9362B68EC220077652B /* Debug */,
+				7490B9372B68EC220077652B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7490B9382B68EC220077652B /* Build configuration list for PBXNativeTarget "TuhDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7490B9392B68EC220077652B /* Debug */,
+				7490B93A2B68EC220077652B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7490B93B2B68EC220077652B /* Build configuration list for PBXNativeTarget "TuhDoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7490B93C2B68EC220077652B /* Debug */,
+				7490B93D2B68EC220077652B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7490B93E2B68EC220077652B /* Build configuration list for PBXNativeTarget "TuhDoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7490B93F2B68EC220077652B /* Debug */,
+				7490B9402B68EC220077652B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7490B9082B68EC200077652B /* Project object */;
+}
