@@ -15,7 +15,7 @@ struct NoteDetails: View {
     let item: Item
     
     @State private var title: String
-    @State private var notes: String
+    @State private var notes: String = "A giant test."
     
     init(item: Item) {
         self.item = item
@@ -24,12 +24,11 @@ struct NoteDetails: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                TextField("Title", text: $title).font(.title)
-                TextField("Placeholder", text: $notes, axis: .vertical)
-            }.padding()
-        }.scrollDismissesKeyboard(.interactively)
+        VStack {
+            TextField("Title", text: $title, axis: .vertical).font(.title)
+            TextEditor(text: $notes)
+                .font(.callout)
+        }.padding()
         
         Spacer()
         
@@ -59,6 +58,9 @@ struct NoteDetails: View {
             } else {
                 item.title = nil
             }
+            item.priority = .none
+            item.lastUpdatedDate = Date.now
+            item.lastActionTakenDate = Date.now
             do {
                 try modelContext.save()
             } catch {

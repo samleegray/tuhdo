@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 import CoreLocation
 
-typealias Item = ItemSchemaV6.Item
+typealias Item = ItemSchemaV7.Item
 
 enum ItemSchemaV1: VersionedSchema {
     static var versionIdentifier: Schema.Version = Schema.Version(1, 0, 0)
@@ -174,11 +174,54 @@ enum ItemSchemaV6: VersionedSchema {
     }
 }
 
+enum ItemSchemaV7: VersionedSchema {
+    static var versionIdentifier: Schema.Version = Schema.Version(7, 0, 0)
+    static var models: [any PersistentModel.Type] {
+        [Item.self]
+    }
+    
+    enum Priority: Codable {
+        case none
+        case low
+        case mid
+        case high
+        case emergency
+    }
+    
+    @Model
+    final class Item {
+        @Attribute(.unique) let id: UUID
+        var createdDate: Date
+        var lastUpdatedDate: Date
+        var lastActionTakenDate: Date
+        var dueDate: Date?
+        var reminderTimes: [Date]?
+        var priority: Priority = Priority.none
+        var notes: String
+        var title: String?
+        var latitude: CLLocationDegrees?
+        var longitude: CLLocationDegrees?
+        
+        init(id: UUID = UUID(), createdDate: Date = Date.now, lastUpdatedDate: Date = Date.now, lastActionTakenDate: Date = Date.now, notes: String = "", title: String? = nil, location: CLLocation? = nil, priority: Priority = .none) {
+            self.id = id
+            self.createdDate = createdDate
+            self.lastUpdatedDate = lastUpdatedDate
+            self.lastActionTakenDate = lastActionTakenDate
+            self.priority = priority
+            self.notes = notes
+            self.title = title
+            self.latitude = location?.coordinate.latitude
+            self.longitude = location?.coordinate.longitude
+        }
+    }
+}
+
 enum ItemMigrationPlan: SchemaMigrationPlan {
     static var schemas: [any VersionedSchema.Type] {
         [ItemSchemaV1.self, ItemSchemaV2.self, 
          ItemSchemaV3.self, ItemSchemaV4.self,
-         ItemSchemaV5.self, ItemSchemaV6.self]
+         ItemSchemaV5.self, ItemSchemaV6.self,
+         ItemSchemaV7.self]
     }
     
     static var stages: [MigrationStage] {
@@ -186,7 +229,8 @@ enum ItemMigrationPlan: SchemaMigrationPlan {
         migrateV2toV3,
         migrateV3toV4,
         migrateV4toV5,
-        migrateV5toV6]
+        migrateV5toV6,
+        migrateV6toV7]
     }
     
     static let migrateV1toV2 = MigrationStage.lightweight(
@@ -215,6 +259,8 @@ enum ItemMigrationPlan: SchemaMigrationPlan {
             
             try context.save()
         }, didMigrate: nil)
+    static let migrateV6toV7 = MigrationStage.custom(
+        fromVersion: ItemSchemaV6.self, toVersion: ItemSchemaV7.self, willMigrate: nil, didMigrate: nil)
     
 //    static let migrateV1toV2 = MigrationStage.custom(fromVersion: ItemSchemaV1.self,
 //                                                     toVersion: ItemSchemaV2.self,

@@ -23,6 +23,7 @@ struct NoteList: View {
         static let addItemLabel = NSLocalizedString("add_item_label", value: "Add Item", comment: "Add Item.")
         static let filterItemLabel = NSLocalizedString("filter_item_label", value: "Filter", comment: "Filter")
         static let detailsTitle = NSLocalizedString("details_view_title", value: "Details", comment: "Details view title.")
+        static let defaultSectionTitle = NSLocalizedString("default_section_title", value: "Your notes", comment: "Default section title.")
     }
     
     /// New item text.
@@ -32,22 +33,35 @@ struct NoteList: View {
     var body: some View {
         NavigationSplitView {
             // List of all items
-            List(items, selection: $selectedItem) {
-                let item = $0
-                NavigationLink(value: item) {
-                    VStack(alignment: .leading) {
-                        if let title = item.title {
-                            Text(title).font(.headline)
+            
+            List(selection: $selectedItem) {
+                Section {
+                    ForEach(previewItems ?? items) { item in
+                        NavigationLink(value: item) {
+                            VStack(alignment: .leading) {
+                                if let title = item.title {
+                                    Text(title).font(.headline)
+                                }
+                                Text(item.notes)
+                                Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
+                                    .font(.footnote).foregroundStyle(.secondary)
+                                
+                            }
                         }
-                        Text(item.notes)
-                        Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
-                            .font(.footnote).foregroundStyle(.secondary)
-                        
-                    }
-//                        NoteDetails(item: item)
-                }
+                    }.onDelete(perform: deleteItems)
+                } header: {
+                    Text(LocalizedStrings.defaultSectionTitle)
+                        .font(.subheadline)
+                        .multilineTextAlignment(.leading)
+                }.listStyle(.insetGrouped)
             // Toolbar for navigation items
             }.toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: filter) {
+                        Label(LocalizedStrings.filterItemLabel, systemImage: "line.3.horizontal.decrease.circle")
+                    }
+                }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     HStack {
                         Button(action: addItem) {
@@ -55,11 +69,7 @@ struct NoteList: View {
                         }
                     }
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: filter) {
-                        Label(LocalizedStrings.filterItemLabel, systemImage: "line.3.horizontal.decrease.circle")
-                    }
-                }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     EditButton()
                 }
@@ -67,6 +77,46 @@ struct NoteList: View {
             .navigationBarTitleDisplayMode(.large)
             .navigationTitle(LocalizedStrings.title)
             .scrollDismissesKeyboard(.immediately)
+
+//            Section(LocalizedStrings.defaultSectionTitle) {
+//                List(selection: $selectedItem) {
+//                    ForEach(previewItems ?? items) { item in
+//                        NavigationLink(value: item) {
+//                            VStack(alignment: .leading) {
+//                                if let title = item.title {
+//                                    Text(title).font(.headline)
+//                                }
+//                                Text(item.notes)
+//                                Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
+//                                    .font(.footnote).foregroundStyle(.secondary)
+//                                
+//                            }
+//                        }
+//                    }.onDelete(perform: deleteItems)
+//                }.listStyle(.insetGrouped)
+//            // Toolbar for navigation items
+//            }.toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button(action: filter) {
+//                        Label(LocalizedStrings.filterItemLabel, systemImage: "line.3.horizontal.decrease.circle")
+//                    }
+//                }
+//                
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    HStack {
+//                        Button(action: addItem) {
+//                            Label(LocalizedStrings.addItemLabel, systemImage: "plus")
+//                        }
+//                    }
+//                }
+//                
+//                ToolbarItem(placement: .topBarTrailing) {
+//                    EditButton()
+//                }
+//            }
+//            .navigationBarTitleDisplayMode(.large)
+//            .navigationTitle(LocalizedStrings.title)
+//            .scrollDismissesKeyboard(.immediately)
             
             // Bottom entry section.
 //            QuickEntry(newItemText: $newItemText)
