@@ -14,6 +14,10 @@ struct NoteDetails: View {
     
     let item: Item
     
+    private struct LocalizedStrings {
+        static let titlePlaceholder = NSLocalizedString("details_title_placeholder", value: "Title", comment: "Title")
+    }
+    
     @State private var title: String
     @State private var notes: String = "A giant test."
     
@@ -30,7 +34,7 @@ struct NoteDetails: View {
             // Top Stack with details to edit
             VStack {
                 Spacer()
-                TextField("Title", text: $title, axis: .vertical).font(.title)
+                TextField(LocalizedStrings.titlePlaceholder, text: $title, axis: .vertical).font(.title)
                 CustomTextEditor(text: $notes)
                     .scrollDismissesKeyboard(.interactively)
                 Spacer()
