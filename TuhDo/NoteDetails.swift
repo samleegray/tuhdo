@@ -24,32 +24,37 @@ struct NoteDetails: View {
     }
     
     var body: some View {
-        VStack {
-            TextField("Title", text: $title, axis: .vertical).font(.title)
-            CustomTextEditor(text: $notes)
-                .scrollDismissesKeyboard(.interactively)
-        }.padding()
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: saveItem) {
-                        Text("Save")
+        
+        // Top ZStack
+        ZStack {
+            // Top Stack with details to edit
+            VStack {
+                Spacer()
+                TextField("Title", text: $title, axis: .vertical).font(.title)
+                CustomTextEditor(text: $notes)
+                    .scrollDismissesKeyboard(.interactively)
+                Spacer()
+            }.padding()
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button(action: saveItem) {
+                            Text("Save")
+                        }
                     }
                 }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .onDisappear(perform: {
-                saveItem()
-            })
-        
-        Spacer()
-        
-//        LazyHStack {
-            Text("Created on \(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                .font(.footnote)
-                .ignoresSafeArea(.keyboard)
-//        }.padding()
+                .navigationBarTitleDisplayMode(.inline)
+                .onDisappear(perform: {
+                    saveItem()
+                })
             
-            
+            // Bottom stack for content that shouldn't move
+            VStack {
+                Spacer()
+                Text("Created on \(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                    .font(.footnote)
+                    .ignoresSafeArea(.keyboard)
+            }.ignoresSafeArea(.keyboard)
+        }
     }
     
     /// Add an item to our storage.
