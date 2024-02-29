@@ -11,7 +11,13 @@ pipeline {
     }
 
     environment {
-        PATH = '/Users/samuelgray/.rbenv/shims:/Applications/vapor.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/bin'
+        // PATH = '/Users/samuelgray/.rbenv/shims:/Applications/vapor.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/bin'
+        PATH =  "$HOME/.fastlane/bin:" +
+                "$HOME/.rvm/gems/ruby-3.3.0/bin:" +
+                "$HOME/.rvm/gems/ruby-3.3.0@global/bin:" +
+                "$HOME/.rvm/rubies/ruby-3.3.0/bin:" +
+                "/usr/local/bin:" +
+                "$PATH"
 
         LC_ALL = 'en_US.UTF-8'
         LANG = 'en_US.UTF-8'
