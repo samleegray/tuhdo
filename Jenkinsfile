@@ -49,31 +49,13 @@ pipeline {
             }
         }
 
-        stage('Install Rbenv') {
+        stage('Bundle Install') {
             steps {
                 script {
-                    // sh 'git clone https://github.com/rbenv/rbenv.git ~/.rbenv'
-                    echo 'eval "$(~/.rbenv/bin/rbenv init - zsh)"' >> ~/.zshrc
-                    // sh 'brew --version'
-                    // sh 'brew update'
+                    sh 'bundle install'
                 }
             }
         }
-
-        // stage('Install Rbenv') {
-        //     steps {
-        //         script {
-        //             sh 'brew install rbenv'
-        //             sh 'rbenv init'
-        //             sh 'rbenv install 3.3.0'
-        //             sh 'rbenv global 3.3.0'
-        //             echo "Ruby Version:"
-        //             echo ruby -v
-        //             gem install bundler
-        //             bundle install
-        //         }
-        //     }
-        // }
 
         stage('Dot Files Check') {
             steps {
