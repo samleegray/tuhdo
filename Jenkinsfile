@@ -12,6 +12,8 @@ pipeline {
 
     environment {
         LC_ALL = 'en_US.UTF-8'
+        LANG = 'en_US.UTF-8'
+
         APP_NAME = 'TuhDo'
         BUILD_NAME = 'TuhDo'
         APP_TARGET = 'TuhDo'
@@ -38,8 +40,10 @@ pipeline {
                         echo "Debug_TestFlight"
                     } else if (BUILD_VARIANT == 'Release_AppStore_TestFlight') {
                         echo "Release_AppStore_TestFlight"
+                    } else if (BUILD_VARIANT == 'Debug_Scan_Only') {
+                        echo "Debug_Scan_Only"
                     } else {
-                       echo "Else block!!"
+                        echo "Else block!!"
                     }
                 }
             }
