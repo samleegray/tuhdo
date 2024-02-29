@@ -11,10 +11,7 @@ pipeline {
     }
 
     environment {
-        PATH = "/opt/homebrew/bin:" +
-                "/opt/homebrew/sbin:" +
-                "/usr/local/bin:" +
-                "/Users/samuelgray/.rbenv/shims:" +
+        PATH = "/Users/samuelgray/.rbenv/shims:" +
                 "$PATH"
 
         // Set the PATH to include the Fastlane bin directory
