@@ -27,5 +27,6 @@ pipeline {
             steps {
                 checkout scm
             }
+        }
     }
 }
