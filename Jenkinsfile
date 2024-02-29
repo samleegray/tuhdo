@@ -12,6 +12,7 @@ pipeline {
 
     environment {
         PATH = "/Users/samuelgray/.rbenv/shims:" +
+                "/opt/homebrew/bin/fastlane:" +
                 "$PATH"
 
         // Set the PATH to include the Fastlane bin directory
@@ -137,6 +138,14 @@ pipeline {
                     ''').trim()
                     echo "Branch name: ${env.BRANCH_NAME}"
                     echo "Current Branch: ${env.GIT_BRANCH}"
+                }
+            }
+        }
+
+        stage('Fastlane - Test') {
+            steps {
+                script {
+                    sh 'fastlane test'
                 }
             }
         }
