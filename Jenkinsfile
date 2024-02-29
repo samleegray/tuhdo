@@ -49,13 +49,13 @@ pipeline {
             }
         }
 
-        stage('Source Zsh') {
-            steps {
-                script {
-                    sh 'source ~/.zshrc'
-                }
-            }
-        }
+        // stage('Source Zsh') {
+        //     steps {
+        //         script {
+        //             sh 'source ~/.zshrc'
+        //         }
+        //     }
+        // }
 
         stage('Bundle Install') {
             steps {
