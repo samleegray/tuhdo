@@ -11,6 +11,10 @@ pipeline {
     }
 
     environment {
+        PATH = "/opt/homebrew/bin:" +
+                "/opt/homebrew/sbin:" +
+                "$PATH"
+
         // Set the PATH to include the Fastlane bin directory
         // and the rbenv Ruby bin directory
         // PATH = 
