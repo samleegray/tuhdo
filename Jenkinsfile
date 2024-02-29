@@ -11,6 +11,8 @@ pipeline {
     }
 
     environment {
+        PATH = '/Users/samuelgray/.rbenv/shims:/Applications/vapor.app/Contents/MacOS:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/usr/local/bin'
+
         LC_ALL = 'en_US.UTF-8'
         LANG = 'en_US.UTF-8'
 
