@@ -49,6 +49,16 @@ pipeline {
             }
         }
 
+        stage('Install Homebrew') {
+            steps {
+                script {
+                    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+                    sh 'brew --version'
+                    // sh 'brew update'
+                }
+            }
+        }
+
         stage('Install Rbenv') {
             steps {
                 script {
