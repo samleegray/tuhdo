@@ -52,7 +52,7 @@ pipeline {
         stage('Install Homebrew') {
             steps {
                 script {
-                    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+                    sh 'git clone https://github.com/rbenv/rbenv.git ~/.rbenv'
                     echo 'eval "$(~/.rbenv/bin/rbenv init - zsh)"' >> ~/.zshrc
                     sh 'brew --version'
                     // sh 'brew update'
