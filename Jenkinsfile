@@ -13,6 +13,8 @@ pipeline {
     environment {
         PATH = "/opt/homebrew/bin:" +
                 "/opt/homebrew/sbin:" +
+                "/usr/local/bin:" +
+                "/usr/bin:/bin:/usr/sbin:/sbin:" +
                 "$PATH"
 
         // Set the PATH to include the Fastlane bin directory
