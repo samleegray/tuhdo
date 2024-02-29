@@ -52,6 +52,7 @@ pipeline {
         stage('Bundle Install') {
             steps {
                 script {
+                    sh 'ruby -v'
                     sh 'bundle install'
                 }
             }
