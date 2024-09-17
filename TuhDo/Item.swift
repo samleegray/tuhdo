@@ -26,15 +26,10 @@ enum ItemSchemaV1: VersionedSchema {
         var timestamp: Date
         var text: String
         var title: String?
-    //    var latitude: CLLocationDegrees?
-    //    var longitude: CLLocationDegrees?
         
         init(timestamp: Date, text: String = "", title: String? = nil, location: CLLocation? = nil) {
             self.timestamp = timestamp
             self.text = text
-            self.title = title
-    //        self.latitude = location?.coordinate.latitude
-    //        self.longitude = location?.coordinate.longitude
         }
     }
 }

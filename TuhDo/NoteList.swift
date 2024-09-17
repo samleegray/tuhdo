@@ -29,7 +29,7 @@ struct NoteList: View {
     /// New item text.
     @State var newItemText: String = ""
     @State private var selectedItem: Item?
-
+    
     var body: some View {
             // List of all items
             VStack {
@@ -74,6 +74,12 @@ struct NoteList: View {
                 .navigationBarTitleDisplayMode(.large)
                 .navigationTitle(LocalizedStrings.title)
                 .scrollDismissesKeyboard(.immediately)
+                
+                // Quick entry to submit new item quickly with filled in text.
+                QuickEntry(newItemText: $newItemText)
+                        .onSubmit {
+                            addItem()
+                        }
             } detail: {
                 if let selectedItem {
                     NoteDetails(item: selectedItem)
@@ -82,11 +88,9 @@ struct NoteList: View {
                     Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
                 }
             }
-            
-            QuickEntry(newItemText: $newItemText)
         }
     }
-    
+ 
     /// Filter operations will go here.
     private func filter() {
         // Placeholder for Filter operations
@@ -120,15 +124,14 @@ struct NoteList: View {
 }
 
 struct NoteList_Previews: PreviewProvider {
-    static let items = [
-        Item(createdDate: Date.distantPast, notes: "An old todo.", title: "Old Title Todo"),
-        Item(createdDate: Date.distantFuture, notes: "A note from the future!", title: "Future Note")
-    ]
-    
-    static var previews: NoteList = {
-        return NoteList(previewItems: items)
-    }()
-    
     typealias Previews = NoteList
-//        .modelContainer(for: Item.self, inMemory: true)
+    
+    static let items = [
+            Item(createdDate: Date.distantPast, notes: "An old todo.", title: "Old Title Todo"),
+            Item(createdDate: Date.distantFuture, notes: "A note from the future!", title: "Future Note")
+        ]
+    
+    static var previews: NoteList {
+        NoteList(previewItems: items)
+    }
 }

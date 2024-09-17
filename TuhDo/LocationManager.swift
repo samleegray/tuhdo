@@ -10,7 +10,7 @@ import CoreLocation
 /// Location Manager. Helps handle request for access, and getting the user's location when we need it.
 /// In the future it will also help notifications/geofencing.
 class LocationManager: NSObject {
-    static let shared = LocationManager()
+    nonisolated(unsafe) static let shared = LocationManager()
     
     private let clManager = CLLocationManager()
     var enabled = false
