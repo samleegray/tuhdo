@@ -11,8 +11,13 @@ struct QuickEntry: View {
     
     @Binding var newItemText: String
     
-    let newItemTextCornerRadius: CGFloat = 14
+    let newItemTextCornerRadius: CGFloat = 0
     let newItemTextMinHeight: CGFloat = 40
+    
+    /// Any localizable strings for this view.
+    private struct LocalizedStrings {
+        static let placeholder = NSLocalizedString("quick_entry_placeholder", value: "Quickly create an item", comment: "Quickly create an item")
+    }
     
     var body: some View {
         getTextView()
@@ -21,16 +26,11 @@ struct QuickEntry: View {
     func getTextView() -> some View {
         HStack {
             VStack(alignment: .leading) {
-                TextField("Placeholder", text: $newItemText, axis: .vertical)
+                TextField(LocalizedStrings.placeholder, text: $newItemText, axis: .vertical)
                     .cornerRadius(newItemTextCornerRadius)
                     .frame(minHeight: newItemTextMinHeight)
                     .padding()
             }
         }
-    }
-    
-    func getText() -> String {
-        print("newItemText: \(newItemText)")
-        return newItemText
     }
 }

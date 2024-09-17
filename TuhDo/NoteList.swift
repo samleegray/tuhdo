@@ -99,6 +99,9 @@ struct NoteList: View {
     /// Add an item to our storage.
     private func addItem() {
         withAnimation {
+            // Force a crash
+            let array = []
+            let _ = array[3]
             // Create & insert new item.
             let newItem = Item(createdDate: Date(), notes: newItemText)
             modelContext.insert(newItem)

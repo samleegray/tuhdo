@@ -189,14 +189,14 @@ enum ItemSchemaV7: VersionedSchema {
     
     @Model
     final class Item {
-        @Attribute(.unique) var id: UUID
-        var createdDate: Date
-        var lastUpdatedDate: Date
-        var lastActionTakenDate: Date
+        @Attribute var id: UUID = UUID()
+        var createdDate: Date = Date.now
+        var lastUpdatedDate: Date = Date.now
+        var lastActionTakenDate: Date = Date.now
         var dueDate: Date?
         var reminderTimes: [Date]?
         var priority: Priority = Priority.none
-        var notes: String
+        var notes: String = ""
         var title: String?
         var latitude: CLLocationDegrees?
         var longitude: CLLocationDegrees?
