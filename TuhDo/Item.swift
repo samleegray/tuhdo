@@ -11,8 +11,12 @@ import CoreLocation
 
 typealias Item = ItemSchemaV7.Item
 
+// Workaround for Swift 6
+extension MigrationStage: @unchecked @retroactive Sendable { }
+extension Schema.Version: @unchecked @retroactive Sendable { }
+
 enum ItemSchemaV1: VersionedSchema {
-    static var versionIdentifier: Schema.Version = Schema.Version(1, 0, 0)
+    static let versionIdentifier: Schema.Version = Schema.Version(1, 0, 0)
     static var models: [any PersistentModel.Type] {
         [Item.self]
     }
@@ -36,7 +40,7 @@ enum ItemSchemaV1: VersionedSchema {
 }
 
 enum ItemSchemaV2: VersionedSchema {
-    static var versionIdentifier: Schema.Version = Schema.Version(2, 0, 0)
+    static let versionIdentifier: Schema.Version = Schema.Version(2, 0, 0)
     static var models: [any PersistentModel.Type] {
         [Item.self]
     }
@@ -63,7 +67,7 @@ enum ItemSchemaV2: VersionedSchema {
 }
 
 enum ItemSchemaV3: VersionedSchema {
-    static var versionIdentifier: Schema.Version = Schema.Version(3, 0, 0)
+    static let versionIdentifier: Schema.Version = Schema.Version(3, 0, 0)
     static var models: [any PersistentModel.Type] {
         [Item.self]
     }
@@ -89,14 +93,14 @@ enum ItemSchemaV3: VersionedSchema {
 }
 
 enum ItemSchemaV4: VersionedSchema {
-    static var versionIdentifier: Schema.Version = Schema.Version(4, 0, 0)
+    static let versionIdentifier: Schema.Version = Schema.Version(4, 0, 0)
     static var models: [any PersistentModel.Type] {
         [Item.self]
     }
     
     @Model
     final class Item {
-        @Attribute(.unique) let id: UUID
+        @Attribute(.unique) var id: UUID
         var createdDate: Date
         var lastUpdatedDate: Date
         var text: String
@@ -117,14 +121,14 @@ enum ItemSchemaV4: VersionedSchema {
 }
 
 enum ItemSchemaV5: VersionedSchema {
-    static var versionIdentifier: Schema.Version = Schema.Version(5, 0, 0)
+    static let versionIdentifier: Schema.Version = Schema.Version(5, 0, 0)
     static var models: [any PersistentModel.Type] {
         [Item.self]
     }
     
     @Model
     final class Item {
-        @Attribute(.unique) let id: UUID
+        @Attribute(.unique) var id: UUID
         var createdDate: Date
         var lastUpdatedDate: Date
         @Attribute(originalName: "text") var notes: String
@@ -145,14 +149,14 @@ enum ItemSchemaV5: VersionedSchema {
 }
 
 enum ItemSchemaV6: VersionedSchema {
-    static var versionIdentifier: Schema.Version = Schema.Version(6, 0, 0)
+    static let versionIdentifier: Schema.Version = Schema.Version(6, 0, 0)
     static var models: [any PersistentModel.Type] {
         [Item.self]
     }
     
     @Model
     final class Item {
-        @Attribute(.unique) let id: UUID
+        @Attribute(.unique) var id: UUID
         var createdDate: Date
         var lastUpdatedDate: Date
         var lastActionTakenDate: Date
@@ -175,7 +179,7 @@ enum ItemSchemaV6: VersionedSchema {
 }
 
 enum ItemSchemaV7: VersionedSchema {
-    static var versionIdentifier: Schema.Version = Schema.Version(7, 0, 0)
+    static let versionIdentifier: Schema.Version = Schema.Version(7, 0, 0)
     static var models: [any PersistentModel.Type] {
         [Item.self]
     }
@@ -190,7 +194,7 @@ enum ItemSchemaV7: VersionedSchema {
     
     @Model
     final class Item {
-        @Attribute(.unique) let id: UUID
+        @Attribute(.unique) var id: UUID
         var createdDate: Date
         var lastUpdatedDate: Date
         var lastActionTakenDate: Date

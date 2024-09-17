@@ -31,55 +31,59 @@ struct NoteList: View {
     @State private var selectedItem: Item?
 
     var body: some View {
-        NavigationSplitView {
             // List of all items
-            
-            List(selection: $selectedItem) {
-                Section {
-                    ForEach(previewItems ?? items) { item in
-                        NavigationLink(value: item) {
-                            VStack(alignment: .leading) {
-                                if let title = item.title {
-                                    Text(title).font(.headline)
+            VStack {
+                NavigationSplitView {
+                
+                List(selection: $selectedItem) {
+                    Section {
+                        ForEach(previewItems ?? items) { item in
+                            NavigationLink(value: item) {
+                                VStack(alignment: .leading) {
+                                    if let title = item.title {
+                                        Text(title).font(.headline)
+                                    }
+                                    Text(item.notes)
+                                    Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
+                                        .font(.footnote).foregroundStyle(.secondary)
+                                    
                                 }
-                                Text(item.notes)
-                                Text(item.createdDate, format: Date.FormatStyle(date: .numeric, time: .standard))
-                                    .font(.footnote).foregroundStyle(.secondary)
-                                
+                            }
+                        }.onDelete(perform: deleteItems)
+                    }.listStyle(.automatic)
+                    // Toolbar for navigation items
+                }.toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button(action: filter) {
+                            Label(LocalizedStrings.filterItemLabel, systemImage: "line.3.horizontal.decrease.circle")
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        HStack {
+                            Button(action: addItem) {
+                                Label(LocalizedStrings.addItemLabel, systemImage: "plus.circle.fill")
                             }
                         }
-                    }.onDelete(perform: deleteItems)
-                }.listStyle(.automatic)
-            // Toolbar for navigation items
-            }.toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: filter) {
-                        Label(LocalizedStrings.filterItemLabel, systemImage: "line.3.horizontal.decrease.circle")
+                    }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        EditButton()
                     }
                 }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    HStack {
-                        Button(action: addItem) {
-                            Label(LocalizedStrings.addItemLabel, systemImage: "plus.circle.fill")
-                        }
-                    }
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    EditButton()
+                .navigationBarTitleDisplayMode(.large)
+                .navigationTitle(LocalizedStrings.title)
+                .scrollDismissesKeyboard(.immediately)
+            } detail: {
+                if let selectedItem {
+                    NoteDetails(item: selectedItem)
+                        .id(selectedItem.id)
+                } else {
+                    Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
                 }
             }
-            .navigationBarTitleDisplayMode(.large)
-            .navigationTitle(LocalizedStrings.title)
-            .scrollDismissesKeyboard(.immediately)
-        } detail: {
-            if let selectedItem {
-                NoteDetails(item: selectedItem)
-                    .id(selectedItem.id)
-            } else {
-                Text(LocalizedStrings.defaultDetailPageViewText).font(.subheadline)
-            }
+            
+            QuickEntry(newItemText: $newItemText)
         }
     }
     
