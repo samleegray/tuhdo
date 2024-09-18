@@ -145,7 +145,7 @@ pipeline {
         stage('Fastlane - Test') {
             steps {
                 script {
-                    sh 'fastlane test'
+                    sh 'bundle exec fastlane test'
                 }
             }
         }
